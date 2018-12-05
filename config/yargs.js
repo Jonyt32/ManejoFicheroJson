@@ -1,14 +1,11 @@
 const argv = require('yargs')
-            // .command('listar','Imprime las tareas por hacer',{
-            //     base:{
-            //         demand: true,
-            //         alias: 'b'
-            //     },
-            //     limite:{
-            //         alias: 'l',
-            //         default: 10
-            //     }
-            // })
+            .command('borrar','borra las tareas por hacer',{
+                descripcion:{
+                    alias: 'd',
+                    demand: true,
+                    desc: 'Descripción de la tarea por hacer'
+                }
+            })
             .command('crear','Crea las tareas por hacer',{
                 descripcion:{
                     alias: 'd',

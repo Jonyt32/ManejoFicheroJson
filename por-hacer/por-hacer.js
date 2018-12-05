@@ -49,11 +49,7 @@ const crear = (descripcion) => {
 
 const actualizar = (descripcion, completado) =>{
     cargarDB();
-    console.log('descripcion', descripcion);
     let Index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
-    console.log(listadoPorHacer);
-    console.log(descripcion);
-    console.log(Index);
     if(Index >= 0){
         listadoPorHacer[Index].completado = completado;
         guardarDB();
@@ -64,8 +60,24 @@ const actualizar = (descripcion, completado) =>{
     }
 }
 
-module.exports ={
+const borrar = (descripcion) => {
+    cargarDB();
+    let Index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+    console.log('Index', Index);
+    console.log('descripcion', descripcion);
+    if(Index >= 0){
+        listadoPorHacer.splice(Index,1);
+        guardarDB();
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 }

@@ -26,8 +26,7 @@ switch(comando){
         console.log(tarea);
         break;
     case 'actualizar':
-        console.log('coroto de parametros');
-        console.log(argv.descripcion);
+
         let actualizo = porHacer.actualizar(comando.descripcion, comando.completado);
         if(actualizo){
             console.log('actualizo');
@@ -36,6 +35,16 @@ switch(comando){
             console.log('No actualizo');
         }
         //console.log(tarea);
+        break;
+    case 'borrar':
+
+        let borro = porHacer.borrar(argv.descripcion);
+        if(borro){
+            console.log('borro');
+        }
+        else{
+            console.log('no borro');
+        }
         break;
     default:
         console.log('Comando no definido');
